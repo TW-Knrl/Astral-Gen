@@ -38,7 +38,7 @@ headers = {
 }
 
 json_data = {
-    'partnerUserId': '005831a7a29a3f6c209e62e3f2f89715ce018c65c9972e45da01f3536435adda',
+    'partnerUserId': 'a599e4c9-d746-4516-8abb-067070a06ef7',
 }
 
 while True:
