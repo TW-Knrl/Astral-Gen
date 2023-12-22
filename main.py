@@ -56,4 +56,4 @@ while True:
     else:
         print(pyfade.Fade.Horizontal(pyfade.Colors.blue_to_purple, text=f"Request failed with status code: {response.status_code}."))    
         print(pyfade.Fade.Horizontal(pyfade.Colors.blue_to_purple, text=f"Error Message: {response.text}"))
-        time.sleep(1)
+        time.sleep(5)
