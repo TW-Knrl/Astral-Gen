@@ -23,7 +23,7 @@ print("\n")
 headers = {
     "authority": 'api.discord.gx.games',
     "accept": '*/*',
-    "accept-language": 'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7,en-GB',
+    "accept-language": 'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7',
     "content-type": 'application/json',
     "origin": 'https://www.opera.com',
     "referer": 'https://www.opera.com/',
@@ -36,10 +36,11 @@ headers = {
     "user-agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0 (Edition std-1)'
 }
 
-json_data = {"partnerUserId":"a599e4c9-d746-4516-8abb-067070a06ef7"}
+json_data = {"partnerUserId": "a599e4c9-d746-4516-8abb-067070a06ef7"}
 
 while True:
-    response = requests.post('https://api.discord.gx.games/v1/direct-fulfillment', headers=headers, json=json_data)
+    api_fulfillment = 'https://api.discord.gx.games/v1/direct-fulfillment'
+    response = requests.request("POST", api_fulfillment, json=json_data, headers=headers)
     data = response.json()
     
     url = 'https://discord.com/billing/partner-promotions/1180231712274387115/' + data['token']
@@ -54,6 +55,6 @@ while True:
                 print(pyfade.Fade.Horizontal(pyfade.Colors.blue_to_purple, text=f"Rate Limited. Waiting for cooldown..."))
                 time.sleep(60)  
     else:
-        print(pyfade.Fade.Horizontal(pyfade.Colors.blue_to_purple, text=f"Request failed with status code: {response.status_code}."))    
-        print(pyfade.Fade.Horizontal(pyfade.Colors.blue_to_purple, text=f"Error Message: {response.text}"))
+        print(pyfade.Fade.Horizontal(pyfade.Colors.blue_to_purple, text=f"{response.status_code}."))    
+        print(pyfade.Fade.Horizontal(pyfade.Colors.blue_to_purple, text=f"{response.text}"))
         time.sleep(5)
