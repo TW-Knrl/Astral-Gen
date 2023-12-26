@@ -36,7 +36,7 @@ headers = {
     "user-agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0 (Edition std-1)'
 }
 
-json_data = {"partnerUserId": "a599e4c9-d746-4516-8abb-067070a06ef7"}
+json_data = {"partnerUserId":"a599e4c9-d746-4516-8abb-067070a06ef7"}
 
 while True:
     api_fulfillment = 'https://api.discord.gx.games/v1/direct-fulfillment'
