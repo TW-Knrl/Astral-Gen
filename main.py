@@ -3,6 +3,10 @@ os.system("cls")
 import requests
 import time
 import pyfade
+from pypresence import Presence
+RPC = Presence("1191806913734783046")
+RPC.connect()
+RPC.update(state='Generating Promos', details='Astral Nitro Generator', large_image='astrala',small_image="astrala",large_text="discord.astralmods.com",small_text="AstralGen")
 
 print(pyfade.Fade.Vertical(pyfade.Colors.blue_to_red, text = f"""                                                                       
                      █████╗ ███████╗████████╗██████╗  █████╗ ██╗     
@@ -24,22 +28,24 @@ headers = {
     "authority": 'api.discord.gx.games',
     "accept": '*/*',
     "accept-language": 'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7',
-    "content-type": 'application/json',
+    "access-control-request-headers": 'content-type',
+    "access-control-request-method": 'POST',
     "origin": 'https://www.opera.com',
     "referer": 'https://www.opera.com/',
-    "sec-ch-ua": '"Opera GX";v="105", "Chromium";v="119", "Not?A_Brand";v="24"',
-    "sec-ch-ua-mobile": '?0',
-    "sec-ch-ua-platform": '"Windows"',
     "sec-fetch-dest": 'empty',
     "sec-fetch-mode": 'cors',
     "sec-fetch-site": 'cross-site',
-    "user-agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0 (Edition std-1)'
+    "user-agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0 (Edition std-1)',
+    "content-type": 'application/json',
+    "sec-ch-ua": '"Opera GX";v="105", "Chromium";v="119", "Not?A_Brand";v="24"',
+    "sec-ch-ua-mobile": '?0',
+    "sec-ch-ua-platform": '"Windows"'
 }
 
-json_data = {"partnerUserId":"a599e4c9-d746-4516-8abb-067070a06ef7"}
+json_data = {"partnerUserId": "a599e4c9-d746-4516-8abb-067070a06ef7"}
 
 while True:
-    api_fulfillment = 'https://api.discord.gx.games/v1/direct-fulfillment'
+    api_fulfillment = "https://api.discord.gx.games/v1/direct-fulfillment"
     response = requests.request("POST", api_fulfillment, json=json_data, headers=headers)
     data = response.json()
     
